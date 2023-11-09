@@ -1,0 +1,42 @@
+Question #1: Turning Strings to URLs
+
+URLs cannot have spaces. Instead, all spaces in a string are replaced with %20. Write an algorithm that replaces all spaces in a string with %20.
+
+You may not use the replace() method or regular expressions to solve this problem. Solve the problem with and without recursion.
+Example
+
+Input: "Jasmine Ann Jones"
+Output: "Jasmine%20Ann%20Jones"
+
+JavaScript Solution Without Recursion 
+
+function urlify(string) {
+  let url = "";
+  for (let i = 0; i < string.length; i++) {
+    if (string[i] === " ") {
+      url.concat("%20");
+    } else {
+      url.concat(string[i]);
+    }
+  }
+  return url;
+}
+
+C# Solution Without Recursion
+
+string Urlify(string str)
+{
+  url = "";
+  for (int i = 0; i < str.Length; i++)
+  {
+    if (str[i] == char.Parse(" "))
+    {
+      url += "%20";
+    }
+    else
+    {
+      url += str[i];
+    }
+  }
+  return url;
+}
