@@ -75,11 +75,10 @@ Write an algorithm that removes duplicates from an array. Do not use a function 
 Example
 
 Input: [7, 9, "hi", 12, "hi", 7, 53]
-
 Output: [7, 9, "hi", 12, 53]
 
 
-JavaScript Solution 
+JavaScript Solution Without Filter()
 
 
 function dedupe(arr) {
@@ -100,25 +99,35 @@ function dedupe(arr) {
 dedupe([1,2,3,3,4,"hi",9,"hi","bye"]);
 
 
-function dedupe(arr) {
+JavaScript Solution With Filter()
+
+DOES NOT WORK
+const arr = [1,2,3,3,4,"hi",9,"hi","bye"];
+const filteredArray = arr.filter((e, f) => e != f);
+RETURNS: [1,2,3,4,"hi",9,"hi","bye"]
+
+
+function isNotDupe(arr) {
   for (let i = 0; i < arr.length - 1; i++) {
-    for (let j = i + 1; j < arr.length; j++) {
+    for (let j = i+1; j < arr.length; j++) {
       if (arr[i] === arr[j]) {
-        arr.splice(arr[j], 1)
+        return false;
       }
     }
   }
-  return arr;
+  return true;
 }
 
+const filteredArray = arr.filter(isNotDupe);
 
-Question #3: Compressing Strings
+
+
+Question #3: Compressing Strings (Unsolved)
 
 Write an algorithm that takes a string with repeated characters and compresses them, using a number to show how many times the repeated character has been compressed. For instance, aaa would be written as 3a. Solve the problem with and without recursion.
 Example
 
 Input: "aaabccdddda"
-
 Output: "3ab2c4da"
 
 function compressStr(str) {
@@ -145,11 +154,9 @@ Write an algorithm that determines whether all the elements in a string are uniq
 Example
 
 Input: "hello"
-
 Output: false
 
 Input: "copyright"
-
 Output: true
 
 function isUnique(str) {
@@ -162,8 +169,6 @@ function isUnique(str) {
   }
   return true;
 }
-
-
 
 
 Question #5: Array Sorting (SOLVED)
@@ -181,7 +186,6 @@ You may implement any of the above algorithms (or your own) to solve the problem
 Example
 
 Input: [9, 2, 7, 12]
-
 Output: [2, 7, 9, 12]
 
 
