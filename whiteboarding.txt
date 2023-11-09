@@ -28,9 +28,9 @@ function urlify(string) {
 
 
 
-JavaScript Solution With Recursion (Unsolved)
+JavaScript Solution With Recursion (SOLVED)
 
-function urlify(string) {
+const urlify = function (string) {
   if (typeof(string) != "string") {
     return;
   }
@@ -38,7 +38,7 @@ function urlify(string) {
     return;
   }
   if (string.lastIndexOf(" ") != -1) {
-  return urlify(string.substring(0, string.lastIndexOf(" ")).trim()) + "%20" + string.slice(string.length - 1, string.indexOf(" "));
+  return urlify(string.substring(0, string.lastIndexOf(" ")).trim()) + "%20" + string.substring(string.length, string.lastIndexOf(" ")).trim();
   } else {
     return string;
   }
@@ -99,27 +99,11 @@ dedupe([1,2,3,3,4,"hi",9,"hi","bye"]);
 
 
 
-JavaScript Solution With Filter() (Unsolved)
+JavaScript Solution With Filter() (SOLVED)
 
-DOES NOT WORK
-const arr = [1,2,3,3,4,"hi",9,"hi","bye"];
-const filteredArray = arr.filter((e, f) => e != f);
-RETURNS: [1,2,3,4,"hi",9,"hi","bye"]
-
-
-DOES NOT WORK
-function isNotDupe(arr) {
-  for (let i = 0; i < arr.length - 1; i++) {
-    for (let j = i+1; j < arr.length; j++) {
-      if (arr[i] === arr[j]) {
-        return false;
-      }
-    }
-  }
-  return true;
+const dedupe = function (arr) {
+  return arr.filter((element, index) => arr.indexOf(element) === index);
 }
-
-const filteredArray = arr.filter(isNotDupe);
 
 
 JavaScript Solution With Recursion (Unsolved)
@@ -150,13 +134,15 @@ function dedupe(arr) {
 
 
 
-Question #3: Compressing Strings (SOLVED)
+Question #3: Compressing Strings 
 
 Write an algorithm that takes a string with repeated characters and compresses them, using a number to show how many times the repeated character has been compressed. For instance, aaa would be written as 3a. Solve the problem with and without recursion.
 Example
 
 Input: "aaabccdddda"
 Output: "3ab2c4da"
+
+JavaScript Without Recursion (SOLVED)
 
 const compressStr = function (str) {
   let compressedStr = "";
@@ -173,6 +159,8 @@ const compressStr = function (str) {
   }
   return compressedStr;
 }
+
+
 
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
