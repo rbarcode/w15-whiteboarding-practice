@@ -26,8 +26,6 @@ function urlify(string) {
 }
 
 
-
-
 JavaScript Solution With Recursion (SOLVED)
 
 const urlify = function (string) {
@@ -106,28 +104,6 @@ const dedupe = function (arr) {
 }
 
 
-JavaScript Solution With Recursion (Unsolved)
-
-const arr = [1,2,3,3,4,"hi",9,"hi","bye"];
-
-
-function dedupe(arr) {
-
-  if (typeof(arr) != "object" || arr.length === 0) {
-    return;
-  }
-  if (arr.length === 1) {
-    return arr[0];
-  }
-
-  if (arr.indexOf(arr[arr.length - 1]) != arr.lastIndexOf(arr[arr.length - 1])) {
-    return dedupe(arr.slice(0, arr.indexOf(arr[arr.length - 2])))
-  } else {
-    return dedupe(arr.slice(0, arr.length - 2)) + arr.pop();
-  }
-}
-
-
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -160,9 +136,6 @@ const compressStr = function (str) {
   return compressedStr;
 }
 
-
-
-
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -189,6 +162,19 @@ function isUnique(str) {
   }
   return true;
 }
+
+
+Alternative Solution
+
+const isUnique = function(str) {
+  for (let i = 0; i < str.length; i++) {
+    if (i != str.lastIndexOf(str[i])) {
+      return false;
+    }
+  }
+  return true;
+}
+
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
